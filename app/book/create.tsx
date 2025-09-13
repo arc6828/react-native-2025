@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, Image, Alert, StyleSheet, Text, ScrollView } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { addBook } from "@/utils/book-storage";
 import { Book } from "@/utils/types";
 
@@ -12,6 +12,12 @@ export default function CreateBook() {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState<string>("https://picsum.photos/400/600"); // default placeholder
   const router = useRouter();
+  const navigation = useNavigation();
+
+  // set title for the screen
+  React.useLayoutEffect(() => {
+    navigation.setOptions({ title: "เพิ่มหนังสือใหม่" });
+  }, [navigation]);
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
