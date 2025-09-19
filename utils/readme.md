@@ -19,7 +19,9 @@ It supports storing and retrieving both **strings** and **objects** with automat
 Make sure you have installed the official AsyncStorage package:
 
 ```bash
+npx expo install @supabase/supabase-js
 npx expo install @react-native-async-storage/async-storage
+npx expo install react-native-url-polyfill
 ```
 
 ## Usage
