@@ -35,7 +35,7 @@ export default function BookDetail() {
         style: "destructive",
         onPress: async () => {
           await deleteBookDatabase(book.id);
-          router.push("/book"); // กลับไปหน้า list
+          router.navigate("/book-online"); // กลับไปหน้า list
         },
       },
     ]);
@@ -58,8 +58,8 @@ export default function BookDetail() {
         <Button
           title="แก้ไข"
           onPress={() =>
-            router.push({
-              pathname: "/book/edit/[id]",
+            router.navigate({
+              pathname: "/book-online/edit/[id]",
               params: { id: book.id },
             })
           }

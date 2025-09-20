@@ -55,7 +55,7 @@ export default function BookListScreen() {
   const renderItem = ({ item }: { item: Book }) => (
     <TouchableOpacity
       style={styles.item}
-      onPress={() => router.push(`/book/${item.id}`)}
+      onPress={() => router.navigate(`/book-online/${item.id}`)}
     >
       <Image source={{ uri: item.image }} style={styles.thumb} />
       <View style={styles.info}>
@@ -65,8 +65,8 @@ export default function BookListScreen() {
           <Button
             title="Edit"
             onPress={() =>
-              router.push({
-                pathname: "/book/edit/[id]",
+              router.navigate({
+                pathname: "/book-online/edit/[id]",
                 params: { id: item.id },
               })
             }
@@ -85,7 +85,7 @@ export default function BookListScreen() {
     <View style={styles.container}>
       <Button
         title="เพิ่มหนังสือใหม่"
-        onPress={() => router.push("/book/create")}
+        onPress={() => router.navigate("/book-online/create")}
       />
       <FlatList
         data={books}

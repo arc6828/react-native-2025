@@ -68,7 +68,7 @@ export default function EditBook() {
       image,
     };
     await updateBookDatabase(id,updated);
-    router.push(`/book/${book.id}`);
+    router.navigate(`/book-online/${book.id}`);
   };
 
   if (!book) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}><Text>Loading...</Text></View>;
