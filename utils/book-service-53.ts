@@ -1,7 +1,7 @@
-import { File } from 'expo-file-system';
+import { decode } from 'base64-arraybuffer';
+import * as FileSystem from 'expo-file-system/legacy';
 import { supabase } from './supabase';
 import { Book } from './types';
-// import * as FileSystem from 'expo-file-system';
 
 // ดึงข้อมูลทั้งหมด
 export async function getBooksDatabase(): Promise<Book[]> {
@@ -41,18 +41,20 @@ export async function deleteBookDatabase(id: string) {
 // upload รูปภาพ ไปยัง Supabase Storage
 export async function uploadBookImage(uri: string): Promise<string> {
   const filePath = `public/${Date.now()}_${uri.split('/').pop()}`; // unique file path
+  const extension = uri.split('.').pop();
+  const inferredType = `image/${extension}`;
 
-  // 1. Read the image file
-  const file = new File(uri);
-  // 2. convert file to array buffer
-  const arrayBuffer = await file.arrayBuffer();
+  // const file = new File(result.assets[0]);
 
-  // 3. get meme type of file
-  // const extension = uri.split('.').pop();
-  // const inferredType = `image/${extension}`;
-  const inferredType = file.type; // e.g., "image/jpeg"
+  // 1. Read the image file as a Base64 string
+  const base64 = await FileSystem.readAsStringAsync(uri, {
+    encoding: FileSystem.EncodingType.Base64,
+  });
 
-  // 4. Upload the ArrayBuffer to Supabase Storage
+  // 2. Decode the Base64 string into an ArrayBuffer
+  const arrayBuffer = decode(base64);
+
+  // 3. Upload the ArrayBuffer to Supabase Storage
   const { data, error } = await supabase.storage.from('book-images').upload(filePath, arrayBuffer, {
     contentType: inferredType, // adjust based on your image type
     upsert: false,
@@ -63,6 +65,6 @@ export async function uploadBookImage(uri: string): Promise<string> {
   const { data: publicUrlData } = supabase.storage.from('book-images').getPublicUrl(data.path);
   const publicUrl = publicUrlData.publicUrl;
   if (!publicUrl) throw new Error('Failed to get public URL');
-  // 5. Return the public URL of the uploaded image
+  // 4. Return the public URL of the uploaded image
   return publicUrl;
 } 

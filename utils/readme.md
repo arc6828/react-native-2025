@@ -22,6 +22,9 @@ Make sure you have installed the official AsyncStorage package:
 npx expo install @supabase/supabase-js
 npx expo install @react-native-async-storage/async-storage
 npx expo install react-native-url-polyfill
+
+npx expo-file-system
+npx expo install base64-arraybuffer
 ```
 
 ## Usage
