@@ -4,7 +4,7 @@ import { useNavigation, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Button, Image, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 // import { addBook } from "@/utils/book-storage";
-import { addBookDatabase, uploadBookImage } from "@/utils/book-service";
+import { addBookDatabase } from "@/utils/book-service";
 import { Book } from "@/utils/types";
 
 export default function CreateBook() {
@@ -27,17 +27,18 @@ export default function CreateBook() {
       return;
     }
     const res = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      // mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ['images'],
       quality: 0.7,
       base64: false, // change to false to get uri
     });
     if (!res.canceled) {
       
-      // setImage(res.assets[0].uri);
+      setImage(res.assets[0].uri);
 
-      const uploadedUrl = await uploadBookImage(res.assets[0].uri);
-      setImage(uploadedUrl);
-      console.log("Uploaded image URL:", uploadedUrl);
+      // const uploadedUrl = await uploadBookImage(res.assets[0].uri);
+      // setImage(uploadedUrl);
+      // console.log("Uploaded image URL:", uploadedUrl);
     }else{
       Alert.alert("Cancelled", "คุณไม่ได้เลือกรูปภาพ หรือ error เกิดขึ้น");
     }

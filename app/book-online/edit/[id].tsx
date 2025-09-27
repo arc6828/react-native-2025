@@ -62,11 +62,10 @@ export default function EditBook() {
       quality: 0.7,
     });
     if (!res.canceled) {
-      // setImage(res.uri);
-      // setImage(res.assets[0].uri);
-      const uploadedUrl = await uploadBookImage(res.assets[0].uri);
-      setImage(uploadedUrl);
-      console.log("Uploaded image URL:", uploadedUrl);
+      setImage(res.assets[0].uri);
+      // const uploadedUrl = await uploadBookImage(res.assets[0].uri);
+      // setImage(uploadedUrl);
+      // console.log("Uploaded image URL:", uploadedUrl);
     }
   };
 
