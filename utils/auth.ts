@@ -17,7 +17,8 @@ export async function signIn(email: string, password: string) {
 // ดึง user ปัจจุบัน
 export async function getCurrentUser() {
     const { data, error } = await supabase.auth.getUser();
-    if (error) throw error;
+    // if (error) throw error;
+    if (error) return null;
     return data.user;
 }
 
