@@ -34,6 +34,9 @@ export default function Index() {
       <Link href="/book-online" style={styles.link}>
         <Text style={styles.linkText}>Book Online</Text>
       </Link>
+      <Link href="/ant" style={styles.link}>
+        <Text style={styles.linkText}>ant</Text>
+      </Link>
     </View>
   );
 }
