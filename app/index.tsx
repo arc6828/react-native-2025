@@ -1,43 +1,48 @@
 import FlexboxMenu from "@/components/FlexboxMenu";
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text>Edit app/index.tsx to edit this screen.</Text>
 
-      <Text>Flexbox Menu</Text>
-      <FlexboxMenu />
+        <Text>Flexbox Menu</Text>
+        <FlexboxMenu />
 
-      <Link href="/test-components" style={styles.link}>
-        <Text style={styles.linkText}>Test Components</Text>
-      </Link>
-      <Link href="/test-greeting" style={styles.link}>
-        <Text style={styles.linkText}>Test Greeting</Text>
-      </Link>
-      <Link href="/travel" style={styles.link}>
-        <Text style={styles.linkText}>Travel</Text>
-      </Link>
-      <Link href="/your-health" style={styles.link}>
-        <Text style={styles.linkText}>Your Health</Text>
-      </Link>
-      <Link href="/todolist" style={styles.link}>
-        <Text style={styles.linkText}>Todo List</Text>
-      </Link>
-      <Link href="/location" style={styles.link}>
-        <Text style={styles.linkText}>Location</Text>
-      </Link>
-      <Link href="/book" style={styles.link}>
-        <Text style={styles.linkText}>Book</Text>
-      </Link>
-      <Link href="/book-online" style={styles.link}>
-        <Text style={styles.linkText}>Book Online</Text>
-      </Link>
-      <Link href="/ant" style={styles.link}>
-        <Text style={styles.linkText}>ant</Text>
-      </Link>
-    </View>
+        <Link href="/test-components" style={styles.link}>
+          <Text style={styles.linkText}>Test Components</Text>
+        </Link>
+        <Link href="/test-greeting" style={styles.link}>
+          <Text style={styles.linkText}>Test Greeting</Text>
+        </Link>
+        <Link href="/travel" style={styles.link}>
+          <Text style={styles.linkText}>Travel</Text>
+        </Link>
+        <Link href="/your-health" style={styles.link}>
+          <Text style={styles.linkText}>Your Health</Text>
+        </Link>
+        <Link href="/todolist" style={styles.link}>
+          <Text style={styles.linkText}>Todo List</Text>
+        </Link>
+        <Link href="/location" style={styles.link}>
+          <Text style={styles.linkText}>Location</Text>
+        </Link>
+        <Link href="/book" style={styles.link}>
+          <Text style={styles.linkText}>Book</Text>
+        </Link>
+        <Link href="/book-online" style={styles.link}>
+          <Text style={styles.linkText}>Book Online</Text>
+        </Link>
+        <Link href="/ant" style={styles.link}>
+          <Text style={styles.linkText}>heros</Text>
+        </Link>
+        <Link href="/flame" style={styles.link}>
+          <Text style={styles.linkText}>Pokemon</Text>
+        </Link>
+      </View>
+    </ScrollView>
   );
 }
 

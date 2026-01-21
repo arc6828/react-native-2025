@@ -1,12 +1,15 @@
 import React from "react";
 import { Image, View } from "react-native";
 
+// ตั้งค่า Titile
+
+
 export default function Ant() {
   return (
     <View style={{ flex: 1 }}>
       <Image
         source={{
-          uri: "https://cdn3.movieweb.com/i/article/Oi0Q2edcVVhs4p1UivwyyseezFkHsq/738:50/Ant-Man-3-Talks-Michael-Douglas-Update.jpg",
+          uri: "https://raw.githubusercontent.com/arc6828/react-native-2025/refs/heads/master/assets/img/ant.png",
         }}
         style={{ width: "100%", height: 500 }}
       />
